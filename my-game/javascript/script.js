@@ -28,15 +28,16 @@ function firstPlayer() {
 //Add event listeners to cells
 var cells = document.querySelectorAll('.cell');
 
-for (var i = 0; i < cells; i++) {
-	cells[i].addEventListener('click', playerMove());
+for (var i = 0; i < cells.length; i++) {
+	cells[i].addEventListener("click", playerMove);
 }
 
 //Add event listenerto reset buttom
 var resetButton = document.querySelector('#reset');
 
-resetButton.addEventListener('click', newGame());
+resetButton.addEventListener("click", newGame);
 
+//Announce the first player
 announcePlayer();
 
 ////////////////////////////////////////
@@ -67,6 +68,8 @@ function resetBoardState(){
 function newGame() {
 	clearGameBoard();
 	resetBoardState();
+	firstPlayer();
+	announcePlayer();
 }
 
 //Announce current player
@@ -76,8 +79,21 @@ function announcePlayer(){
 }
 
 
+////////////////////////////////////////
+////PLAYER MOVE
 
+function playerMove(){
+	var playedCell = this.id;
+	document.getElementById(playedCell + currentPlayer).style.display = 'block';
+	boardState[playedCell] = currentPlayer;
+	if(currentPlayer == 'x'){
+		currentPlayer="o";
+	} else {
+		currentPlayer="x";
+	}
+	announcePlayer();
 
+}
 
 
 
