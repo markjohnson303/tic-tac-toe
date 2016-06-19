@@ -1,0 +1,59 @@
+body{
+	color: #34495e;
+}
+
+p{
+	margin: 10px;
+}
+
+.but{
+	background-color: #3498db;
+	height: 25px;
+	margin: 0 0 25px;
+	text-align:center;
+}
+
+.cell{
+	background-color: #ecf0f1;
+	height: 150px;
+	padding: 0;
+}
+
+.row{
+	margin: 5px 0 5px 0;
+}
+
+.center{
+	text-align: center;
+}
+
+.marker{
+	width: 150px;
+	border-width: 10px;
+	box-sizing: border-box;
+	display: none;	
+}
+
+.o{
+	border-color: #8e44ad;
+	border-style: solid;
+}
+
+.x{
+	border-color: #d35400;
+	border-style: solid;
+	display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
