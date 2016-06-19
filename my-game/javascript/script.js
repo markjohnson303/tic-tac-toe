@@ -26,10 +26,18 @@ function firstPlayer() {
 }
 
 //Add event listeners to cells
-for (var i = 0; i < positions.length; i++) {
-	positions[i].addEventListener('click', playerMove(), false);
+var cells = document.querySelectorAll('.cell');
+
+for (var i = 0; i < cells; i++) {
+	cells[i].addEventListener('click', playerMove());
 }
 
+//Add event listenerto reset buttom
+var resetButton = document.querySelector('#reset');
+
+resetButton.addEventListener('click', newGame());
+
+announcePlayer();
 
 ////////////////////////////////////////
 ////BASIC GAME FUNCTIONS
@@ -54,4 +62,37 @@ function resetBoardState(){
 	a3 : ".", b3 : ".", c3 : ".",
 };
 }
+
+//Start a new game
+function newGame() {
+	clearGameBoard();
+	resetBoardState();
+}
+
+//Announce current player
+
+function announcePlayer(){
+	document.getElementById("currentPlayer").innerHTML = currentPlayer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
