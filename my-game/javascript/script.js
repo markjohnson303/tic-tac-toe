@@ -16,13 +16,13 @@ var currentPlayer = firstPlayer();
 
 //Get first player
 function firstPlayer() {
-    var randomNumber = Math.random();
-    if (randomNumber < 0.5) {
-        return "x";
-    } else {
-        return "o";
-    }
-    return firstPlayer;
+	var randomNumber = Math.random();
+	if (randomNumber < 0.5) {
+		return "x";
+	} else {
+		return "o";
+	}
+	return firstPlayer;
 }
 
 //Add event listeners to cells
@@ -58,10 +58,10 @@ function clearGameBoard(){
 //Reset Board State
 function resetBoardState(){
 	boardState = {
-	a1 : ".", b1 : ".", c1 : ".",
-	a2 : ".", b2 : ".", c2 : ".",
-	a3 : ".", b3 : ".", c3 : ".",
-};
+		a1 : ".", b1 : ".", c1 : ".",
+		a2 : ".", b2 : ".", c2 : ".",
+		a3 : ".", b3 : ".", c3 : ".",
+	};
 }
 
 //Start a new game
@@ -84,14 +84,16 @@ function announcePlayer(){
 
 function playerMove(){
 	var playedCell = this.id;
-	document.getElementById(playedCell + currentPlayer).style.display = 'block';
-	boardState[playedCell] = currentPlayer;
-	if(currentPlayer == 'x'){
-		currentPlayer="o";
-	} else {
-		currentPlayer="x";
+	if(boardState[playedCell] == "."){
+		document.getElementById(playedCell + currentPlayer).style.display = 'block';
+		boardState[playedCell] = currentPlayer;
+		if(currentPlayer == 'x'){
+			currentPlayer="o";
+		} else {
+			currentPlayer="x";
+		}
+		announcePlayer();
 	}
-	announcePlayer();
 
 }
 
