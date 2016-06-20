@@ -7,6 +7,15 @@ var boardState = {
 	a3 : ".", b3 : ".", c3 : ".",
 } ;
 
+var row1 = [boardState.a1, boardState.b1, boardState.c1];
+var row2 = [boardState.a2, boardState.b2, boardState.c2];
+var row3 = [boardState.a3, boardState.b3, boardState.c3];
+var cola = [boardState.a1, boardState.a2, boardState.a3];
+var colb = [boardState.b1, boardState.b2, boardState.b3];
+var colc = [boardState.c1, boardState.c2, boardState.c3];
+var diag1= [boardState.a1, boardState.b2, boardState.c3];
+var diag2= [boardState.c1, boardState.b2, boardState.a3];
+
 var positions = Object.keys(boardState);
 
 var currentPlayer = firstPlayer();
@@ -74,6 +83,14 @@ function newGame() {
 
 //Announce current player
 
+function switchPlayer(){
+			if(currentPlayer == 'x'){
+			currentPlayer="o";
+		} else {
+			currentPlayer="x";
+		}
+}
+
 function announcePlayer(){
 	document.getElementById("currentPlayer").innerHTML = currentPlayer;
 }
@@ -82,24 +99,34 @@ function announcePlayer(){
 ////////////////////////////////////////
 ////PLAYER MOVE
 
+
+//Make a move
 function playerMove(){
 	var playedCell = this.id;
 	if(boardState[playedCell] == "."){
 		document.getElementById(playedCell + currentPlayer).style.display = 'block';
 		boardState[playedCell] = currentPlayer;
-		if(currentPlayer == 'x'){
-			currentPlayer="o";
-		} else {
-			currentPlayer="x";
-		}
+		switchPlayer();
 		announcePlayer();
 	}
 
 }
 
 
+////////////////////////////////////////
+////Check for winner
+
+//Check for a winner
+function getWinner(){
+
+}
 
 
+//Get Rows
+
+function getRow1(){
+	row1 = [boardState.a1, boardState.a2, boardState.a3]
+}
 
 
 
