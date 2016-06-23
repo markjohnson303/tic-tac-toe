@@ -1,10 +1,10 @@
 boardState
 
-All rows, cols, and diags
-
 Positions
 
 Current Player
+
+Players
 
 cells
 
